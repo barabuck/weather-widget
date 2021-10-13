@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "Wetaher",
+  name: "Weather",
   props: {
     msg: String,
   }
