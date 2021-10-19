@@ -1,5 +1,7 @@
-import { defineCustomElement } from 'vue';
+import { createApp } from 'vue';
 import WeatherWidget from './WeatherWidget.vue';
+//style
+import Equal from 'equal-vue';
+import 'equal-vue/dist/style.css';
 
-customElements.define('weather-widget', defineCustomElement(WeatherWidget));
-
+createApp(WeatherWidget).use(Equal).mount('weather-widget');
