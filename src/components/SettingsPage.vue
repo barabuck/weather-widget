@@ -3,9 +3,13 @@
     <div class="settings-page__name-page">
       <h4>Settings</h4>
     </div>
-    <div class="setting-page__save-city" >
+    <div class="setting-page__save-city droppable" >
       <div v-if="saveCities.length > 0">
-        <settings-save-city v-for="(name, index) in saveCities" v-bind:key="index" v-bind:name="name" v-bind:getWeather="getWeather"/>
+        <draggable :list="saveCities" @change="endDrop">
+        <settings-save-city v-for="(name) in saveCities" 
+                            v-bind:key="name" v-bind:name="name" 
+                            v-bind:getWeather="getWeather"/>
+        </draggable>
       </div>
       <div v-else>
         Add city
@@ -24,6 +28,7 @@
 
 <script>
 import SettingsSaveCity from './SettingsSaveCity.vue';
+import { VueDraggableNext } from 'vue-draggable-next';
 import { Send } from 'mdue';
 
 export default {
@@ -33,7 +38,8 @@ export default {
   },
   components: {
     SettingsSaveCity,
-    Send
+    Send,
+    draggable: VueDraggableNext,
   },
   data() {
     return {
@@ -81,6 +87,10 @@ export default {
         this.alertBody = ''
         this.visibleAlert = false
       }, 3000);
+    },
+    endDrop: function () {
+      localStorage.setItem('saveCities', JSON.stringify(this.saveCities));
+      this.getWeather();
     }
   },
   created: async function () {

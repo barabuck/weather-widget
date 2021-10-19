@@ -4,4 +4,4 @@ import WeatherWidget from './WeatherWidget.vue';
 import Equal from 'equal-vue';
 import 'equal-vue/dist/style.css';
 
-createApp(WeatherWidget).use(Equal).mount('weather-widget')
+createApp(WeatherWidget).use(Equal).mount('weather-widget');
