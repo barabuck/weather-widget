@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "equal-vue": "^0.79.3",
+    "mdue": "^0.1.4",
     "vue": "^3.2.1",
-    "vue-loader": "^16.8.1"
+    "vue-awesome": "^4.3.1",
+    "vue-loader": "^16.8.1",
+    "vue-material-design-icons": "^4.13.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
